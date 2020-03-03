@@ -39,6 +39,8 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^18.0.1"
+    "eslint-config-airbnb": "^18.0.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8"
   }
 }
