@@ -5,8 +5,9 @@ const StyledTable = styled.table`
   width: 1160px;
   min-width: 100%;
   table-layout: fixed;
-  overflow: scroll;
   border-collapse: collapse;
+  border-spacing: 0;
+  border-collapse: separate;
 `;
 
 
