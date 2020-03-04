@@ -1,23 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Th from './components/Table/th';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit
+          {' '}
+          <code>src/App.tsx</code>
+          {' '}
+          and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <table style={{ margin: '1.2rem' }}>
+          <colgroup>
+            <col style={{ width: '200px' }} />
+          </colgroup>
+          <thead>
+            <tr>
+              <Th name="Something" />
+            </tr>
+          </thead>
+        </table>
       </header>
     </div>
   );
