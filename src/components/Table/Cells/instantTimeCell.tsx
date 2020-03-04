@@ -8,10 +8,10 @@ const StyledInstanceDateCell = styled(Cell)`
   color: blueviolet;
 `;
 
-const InstanceDateCell = ({ size, value }: BaseCellType) => {
+const InstanceDateCell = ({ value }: BaseCellType) => {
   const dateValue = new Date(value).getTime();
   return (
-    <StyledInstanceDateCell size={size}>{dateValue}</StyledInstanceDateCell>
+    <StyledInstanceDateCell>{dateValue}</StyledInstanceDateCell>
   );
 };
 

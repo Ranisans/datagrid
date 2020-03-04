@@ -12,8 +12,8 @@ const StyledDateTimeCell = styled(Cell)`
   text-overflow: ellipsis;
 `;
 
-const DateTimeCell = ({ size, value }: BaseCellType) => (
-  <StyledDateTimeCell size={size}>{value}</StyledDateTimeCell>
+const DateTimeCell = ({ value }: BaseCellType) => (
+  <StyledDateTimeCell>{value}</StyledDateTimeCell>
 );
 
 export default DateTimeCell;

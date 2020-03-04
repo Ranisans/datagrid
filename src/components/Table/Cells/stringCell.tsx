@@ -11,7 +11,7 @@ const StyledStringCell = styled(Cell)`
   text-overflow: ellipsis;
 `;
 
-const StringCell = ({ size, value }: BaseCellType) => (
-  <StyledStringCell size={size}>{value}</StyledStringCell>
+const StringCell = ({ value }: BaseCellType) => (
+  <StyledStringCell>{value}</StyledStringCell>
 );
 export default StringCell;

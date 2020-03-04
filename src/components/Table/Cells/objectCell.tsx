@@ -9,8 +9,8 @@ const StyledObjectCell = styled(Cell)`
   align-content: space-around;
 `;
 
-const ObjectCell = ({ size, value }: ObjectCellType) => (
-  <StyledObjectCell size={size}>
+const ObjectCell = ({ value }: ObjectCellType) => (
+  <StyledObjectCell>
     <span>{value.value}</span>
     <span>{value.label}</span>
   </StyledObjectCell>

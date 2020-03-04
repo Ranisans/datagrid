@@ -1,16 +1,13 @@
-export interface CellType {
-  size: number;
-}
 
-export interface BaseCellType extends CellType {
+export interface BaseCellType {
   value: string;
 }
 
-export interface EnumCellType extends CellType {
+export interface EnumCellType {
   value: any[];
 }
 
-export interface NumberCellType extends CellType {
+export interface NumberCellType {
   value: number;
 }
 
@@ -19,6 +16,6 @@ interface ObjectCellValue {
   value: string|number;
 }
 
-export interface ObjectCellType extends CellType {
+export interface ObjectCellType {
   value: ObjectCellValue;
 }
