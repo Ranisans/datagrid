@@ -11,6 +11,10 @@ export interface NumberCellType {
   value: number;
 }
 
+export interface BooleanCellType {
+  value: boolean;
+}
+
 interface ObjectCellValue {
   label: string;
   value: string|number;
