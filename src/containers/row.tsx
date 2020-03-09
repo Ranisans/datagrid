@@ -20,8 +20,8 @@ const Row = ({ data }: PropsType) => (
     <StringCell value={data.address} />
     <StringCell value={data.phoneNum} />
     <StringCell value={data.email} />
-    <ObjectCell value={{ label: data.deposit.currency, value: data.deposit.value }} />
-    <ObjectCell value={{ label: data.loan.currency, value: data.loan.value }} />
+    <ObjectCell value={{ label: data.deposit.currency, meaning: data.deposit.value }} />
+    <ObjectCell value={{ label: data.loan.currency, meaning: data.loan.value }} />
     <NumberCell value={data.interestRate} />
   </StyledTr>
 );

@@ -12,8 +12,16 @@ const StyledDateTimeCell = styled(Cell)`
   text-overflow: ellipsis;
 `;
 
-const DateTimeCell = ({ value }: BaseCellType) => (
-  <StyledDateTimeCell>{value}</StyledDateTimeCell>
-);
+const DateTimeCell = ({ value }: BaseCellType) => {
+  const dateObj = new Date(value);
+  const month = (`0${dateObj.getMonth() + 1}`).slice(-2);
+  const day = (`0${dateObj.getDate()}`).slice(-2);
+  const year = dateObj.getFullYear();
+
+
+  return (
+    <StyledDateTimeCell>{`${year}-${month}-${day}`}</StyledDateTimeCell>
+  );
+};
 
 export default DateTimeCell;

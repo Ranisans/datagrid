@@ -17,7 +17,7 @@ export interface BooleanCellType {
 
 interface ObjectCellValue {
   label: string;
-  value: string|number;
+  meaning: string|number;
 }
 
 export interface ObjectCellType {

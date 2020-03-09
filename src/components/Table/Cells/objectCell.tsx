@@ -5,15 +5,23 @@ import Cell from './cell';
 import { ObjectCellType } from './types';
 
 const StyledObjectCell = styled(Cell)`
-  display: flex;
-  align-content: space-around;
+  .flex {
+    width: 95%;
+    display: inline-flex;
+    justify-content: space-between;
+  }
 `;
 
-const ObjectCell = ({ value }: ObjectCellType) => (
-  <StyledObjectCell>
-    <span>{value.value}</span>
-    <span>{value.label}</span>
-  </StyledObjectCell>
-);
+const ObjectCell = ({ value }: ObjectCellType) => {
+  const newValue = typeof value.meaning === 'number' ? value.meaning.toLocaleString('ru-RU') : value;
+  return (
+    <StyledObjectCell>
+      <div className="flex">
+        <div>{newValue}</div>
+        <div>{value.label}</div>
+      </div>
+    </StyledObjectCell>
+  );
+};
 
 export default ObjectCell;
