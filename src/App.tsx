@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Th from './components/Table/th';
+import Table from './containers/table';
 
 function App() {
   return (
@@ -13,17 +13,10 @@ function App() {
           {' '}
           and save to reload.
         </p>
-        <table style={{ margin: '1.2rem' }}>
-          <colgroup>
-            <col style={{ width: '200px' }} />
-          </colgroup>
-          <thead>
-            <tr>
-              <Th name="Something" />
-            </tr>
-          </thead>
-        </table>
       </header>
+      <main>
+        <Table />
+      </main>
     </div>
   );
 }
