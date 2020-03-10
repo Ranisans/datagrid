@@ -4,9 +4,12 @@ import Paper from '@material-ui/core/Paper';
 import TableContainer from '@material-ui/core/TableContainer';
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
+import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
 
+import HeaderCell from '../components/MaterialTable/headerCell';
+import generateData from '../logic/dataGenerator';
+import BodyRow from './bodyRow';
 
 const useStyles = makeStyles({
   root: {
@@ -72,6 +75,7 @@ const columns = [
 
 const AppTable = () => {
   const classes = useStyles();
+  const tableData = generateData();
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -79,15 +83,19 @@ const AppTable = () => {
           <TableHead>
             <TableRow>
               {columns.map((column) => (
-                <TableCell
+                <HeaderCell
                   key={column.id}
-                  style={{ minWidth: column.minWidth }}
-                >
-                  {column.label}
-                </TableCell>
+                  label={column.label}
+                  minWidth={column.minWidth}
+                />
               ))}
             </TableRow>
           </TableHead>
+          <TableBody>
+            {tableData.map((rowData, i) => (
+              <BodyRow data={rowData} key={i.toString()} />
+            ))}
+          </TableBody>
         </Table>
       </TableContainer>
     </Paper>
