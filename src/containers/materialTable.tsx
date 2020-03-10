@@ -3,12 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TableContainer from '@material-ui/core/TableContainer';
 import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
-import TableRow from '@material-ui/core/TableRow';
 
-import HeaderCell from '../components/MaterialTable/headerCell';
 import generateData from '../logic/dataGenerator';
+import Header from './header';
 import BodyRow from './bodyRow';
 
 const useStyles = makeStyles({
@@ -17,6 +15,24 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 440,
+  },
+  tableRow: {
+    '& :nth-child(1)': {
+      position: 'sticky',
+      left: 0,
+    },
+    '& :nth-child(2)': {
+      position: 'sticky',
+      left: '81px',
+    },
+  },
+  headerRow: {
+    '& :nth-child(1)': {
+      zIndex: 10,
+    },
+    '& :nth-child(2)': {
+      zIndex: 10,
+    },
   },
 });
 
@@ -80,20 +96,10 @@ const AppTable = () => {
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <HeaderCell
-                  key={column.id}
-                  label={column.label}
-                  minWidth={column.minWidth}
-                />
-              ))}
-            </TableRow>
-          </TableHead>
+          <Header columns={columns} classes={`${classes.tableRow} ${classes.headerRow}`} />
           <TableBody>
             {tableData.map((rowData, i) => (
-              <BodyRow data={rowData} key={i.toString()} />
+              <BodyRow data={rowData} key={i.toString()} classes={classes.tableRow} />
             ))}
           </TableBody>
         </Table>

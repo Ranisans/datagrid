@@ -9,10 +9,11 @@ import ObjectCell from '../components/MaterialTable/Cells/objectCell';
 
 interface PropsType {
   data: RowType;
+  classes: string;
 }
 
-const BodyRow = ({ data }: PropsType) => (
-  <TableRow>
+const BodyRow = ({ data, classes }: PropsType) => (
+  <TableRow className={classes}>
     <NumberCell value={data.number} />
     <StringCell value={data.name} />
     <DateTimeCell value={data.birth} />

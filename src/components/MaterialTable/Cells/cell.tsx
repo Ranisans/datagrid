@@ -8,6 +8,7 @@ const Cell = styled(TableCell)({
   padding: '0 0.25rem',
   borderRight: border,
   borderBottom: border,
+  background: 'white',
 });
 
 export default Cell;
