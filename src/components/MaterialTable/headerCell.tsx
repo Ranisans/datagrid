@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 
 interface StyleTypes {
-  minWidth: number;
+  width: number;
 }
 
 interface PropsType extends StyleTypes{
@@ -12,7 +12,7 @@ interface PropsType extends StyleTypes{
 
 const useStyles = makeStyles({
   root: (props: StyleTypes) => ({
-    minWidth: props.minWidth,
+    width: props.width,
     cursor: 'pointer',
     userSelect: 'none',
     '& div': {
@@ -43,8 +43,8 @@ const useStyles = makeStyles({
   },
 });
 
-const HeaderCell = ({ label, minWidth }: PropsType) => {
-  const classes = useStyles({ minWidth });
+const HeaderCell = ({ label, width }: PropsType) => {
+  const classes = useStyles({ width });
 
   const val = [
     'none',

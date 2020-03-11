@@ -21,7 +21,7 @@ const Header = ({ columns, classes }: PropsType) => (
         <HeaderCell
           key={column.id}
           label={column.label}
-          minWidth={column.minWidth}
+          width={column.minWidth}
         />
       ))}
     </TableRow>

@@ -3,11 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import TableContainer from '@material-ui/core/TableContainer';
 import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
 
 import generateData from '../logic/dataGenerator';
 import Header from './header';
-import BodyRow from './bodyRow';
+import BodyContainer from './bodyContainer';
 
 const useStyles = makeStyles({
   root: {
@@ -99,11 +98,7 @@ const AppTable = () => {
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
           <Header columns={columns} classes={`${classes.tableRow} ${classes.headerRow}`} />
-          <TableBody>
-            {tableData.map((rowData, i) => (
-              <BodyRow data={rowData} key={i.toString()} classes={classes.tableRow} />
-            ))}
-          </TableBody>
+          <BodyContainer tableData={tableData} classes={classes.tableRow} />
         </Table>
       </TableContainer>
     </Paper>
