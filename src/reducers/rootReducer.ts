@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { filterReducer } from './filterReducer';
+import { filterReducer } from './sortingReducer';
 import { resultReducer } from './resultReducer';
 import { sizeReducer } from './sizeReducer';
 
 const rootReducer = combineReducers({
-  filter: filterReducer,
+  sorting: filterReducer,
   result: resultReducer,
   size: sizeReducer,
 });
