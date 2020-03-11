@@ -17,20 +17,22 @@ const useStyles = makeStyles({
     maxHeight: 440,
   },
   tableRow: {
-    '& :nth-child(1)': {
+    '& > :nth-child(1)': {
       position: 'sticky',
+      zIndex: 2,
       left: 0,
     },
-    '& :nth-child(2)': {
+    '& > :nth-child(2)': {
       position: 'sticky',
+      zIndex: 2,
       left: '81px',
     },
   },
   headerRow: {
-    '& :nth-child(1)': {
+    '& > :nth-child(1)': {
       zIndex: 10,
     },
-    '& :nth-child(2)': {
+    '& > :nth-child(2)': {
       zIndex: 10,
     },
   },
