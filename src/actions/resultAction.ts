@@ -3,7 +3,7 @@ import { RowType } from '../types/rowType';
 export const SET_DATA = 'SET_DATA';
 
 export interface ResultDataType {
-  data: RowType;
+  data: RowType[];
 }
 
 export interface ActionType extends ResultDataType {
