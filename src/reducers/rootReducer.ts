@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 
-import { filterReducer } from './sortingReducer';
+import { sortingReducer } from './sortingReducer';
 import { sizeReducer } from './sizeReducer';
 import { changeTableType } from './tableTypeReducer';
+import { filterReducer } from './filterReducer';
 
 const rootReducer = combineReducers({
-  sorting: filterReducer,
+  sorting: sortingReducer,
+  filter: filterReducer,
   size: sizeReducer,
   tableType: changeTableType,
 });

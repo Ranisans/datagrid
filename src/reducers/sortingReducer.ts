@@ -1,7 +1,7 @@
 import { ADD_SORTING, SET_SORTING, ActionType } from '../actions/sortAction';
 
 
-interface StateTypes {
+export interface StateTypes {
   sortingOrder: Set<string>;
   sorting: Map<string, string>;
 }
@@ -11,7 +11,7 @@ export const initialState: StateTypes = {
   sorting: new Map(),
 };
 
-export const filterReducer = (state = initialState, action: ActionType): StateTypes => {
+export const sortingReducer = (state = initialState, action: ActionType): StateTypes => {
   switch (action.type) {
     case SET_SORTING:
       return {
