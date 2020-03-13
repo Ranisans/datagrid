@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { RowType } from '../types/rowType';
-import NumberCell from '../components/MaterialTable/Cells/numberCell';
-import StringCell from '../components/MaterialTable/Cells/stringCell';
-import DateTimeCell from '../components/MaterialTable/Cells/dateTimeCell';
-import ObjectCell from '../components/MaterialTable/Cells/objectCell';
+import NumberCell from '../components/Table/Cells/numberCell';
+import StringCell from '../components/Table/Cells/stringCell';
+import DateTimeCell from '../components/Table/Cells/dateTimeCell';
+import ObjectCell from '../components/Table/Cells/objectCell';
 
 interface PropsType {
   data: RowType;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import HeaderCell from '../components/MaterialTable/headerCell';
+import HeaderCell from '../components/Table/headerCell';
 
 interface ColumnType {
   id: string;
