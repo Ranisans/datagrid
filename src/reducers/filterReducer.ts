@@ -7,12 +7,14 @@ import {
 } from '../actions/filterAction';
 
 export interface StateType {
-  stringFilter?: string;
-  enumFilter?: string[];
+  stringFilter: string;
+  enumFilter: string[];
   booleanFilter?: boolean;
 }
 
 export const initialState: StateType = {
+  stringFilter: '',
+  enumFilter: [],
 };
 
 export const filterReducer = (state = initialState, action: ActionType): StateType => {
@@ -20,17 +22,17 @@ export const filterReducer = (state = initialState, action: ActionType): StateTy
     case ADD_BOOLEAN_FILTER:
       return {
         ...state,
-        booleanFilter: action.booleanFilter,
+        booleanFilter: action.filter,
       };
     case ADD_ENUM_FILTER:
       return {
         ...state,
-        enumFilter: action.enumFilter,
+        enumFilter: action.filter,
       };
     case ADD_STRING_FILTER:
       return {
         ...state,
-        stringFilter: action.stringFilter,
+        stringFilter: action.filter,
       };
     case RESET_FILTER:
       return initialState;

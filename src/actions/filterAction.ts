@@ -17,34 +17,33 @@ export interface BooleanFilterType {
 
 export interface ActionType {
   type: string;
-  stringFilter?: string;
-  enumFilter?: string[];
-  booleanFilter?: boolean;
+  filter: any;
 }
 
 export const addStringFilter = ({ filterValue }: StringFilterType): ActionType => (
   {
     type: ADD_STRING_FILTER,
-    stringFilter: filterValue,
+    filter: filterValue,
   }
 );
 
 export const addEnumFilter = ({ filterValue }: EnumFilterType): ActionType => (
   {
     type: ADD_STRING_FILTER,
-    enumFilter: filterValue,
+    filter: filterValue,
   }
 );
 
 export const addBooleanFilter = ({ filterValue }: BooleanFilterType): ActionType => (
   {
     type: ADD_STRING_FILTER,
-    booleanFilter: filterValue,
+    filter: filterValue,
   }
 );
 
 export const resetFilter = (): ActionType => (
   {
     type: RESET_FILTER,
+    filter: null,
   }
 );
