@@ -8,10 +8,11 @@ interface PropsType {
   scrollTop: number;
   rowsOnPage: number;
   classes: string;
+  rowHeight: number;
 }
 
 const VirtualTableBody = ({
-  rows, rowsCount, scrollTop, rowsOnPage, classes,
+  rows, rowsCount, scrollTop, rowsOnPage, classes, rowHeight,
 }: PropsType) => {
   const showedRowsCount = Math.min(rowsCount - scrollTop, rowsOnPage);
   const showedRows = new Array(showedRowsCount)
@@ -19,7 +20,7 @@ const VirtualTableBody = ({
     .map((_, i) => rows[scrollTop + i]);
 
   return (
-    <BodyContainer tableData={showedRows} classes={classes} />
+    <BodyContainer tableData={showedRows} classes={classes} rowHeight={rowHeight} />
   );
 };
 

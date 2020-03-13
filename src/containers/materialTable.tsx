@@ -10,6 +10,8 @@ interface StylePropsType {
   gridColumnsSize: string;
 }
 
+const rowHeight = 25;
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
@@ -28,14 +30,9 @@ const useStyles = makeStyles({
     '& > :nth-child(2)': {
       position: 'sticky',
       zIndex: 2,
-      left: '81px',
+      left: '50px',
     },
   }),
-  headerRow: {
-    position: 'sticky',
-    top: 0,
-    zIndex: 10,
-  },
 });
 
 const columns = [
@@ -98,8 +95,8 @@ const AppTable = () => {
 
   return (
     <div className={classes.root}>
-      <Header columns={columns} classes={`${classes.tableRow} ${classes.headerRow}`} />
-      <BodyContainer tableData={tableData} classes={classes.tableRow} />
+      <Header columns={columns} classes={classes.tableRow} rowHeight={rowHeight} />
+      <BodyContainer tableData={tableData} classes={classes.tableRow} rowHeight={rowHeight} />
     </div>
   );
 };
