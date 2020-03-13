@@ -1,5 +1,4 @@
 import React from 'react';
-import TableRow from '@material-ui/core/TableRow';
 
 import { RowType } from '../types/rowType';
 import NumberCell from '../components/MaterialTable/Cells/numberCell';
@@ -13,7 +12,7 @@ interface PropsType {
 }
 
 const BodyRow = ({ data, classes }: PropsType) => (
-  <TableRow className={classes}>
+  <div className={classes}>
     <NumberCell value={data.number} />
     <StringCell value={data.name} />
     <DateTimeCell value={data.birth} />
@@ -24,7 +23,7 @@ const BodyRow = ({ data, classes }: PropsType) => (
     <ObjectCell value={{ label: data.deposit.currency, meaning: data.deposit.value }} />
     <ObjectCell value={{ label: data.loan.currency, meaning: data.loan.value }} />
     <NumberCell value={data.interestRate} />
-  </TableRow>
+  </div>
 );
 
 export default BodyRow;

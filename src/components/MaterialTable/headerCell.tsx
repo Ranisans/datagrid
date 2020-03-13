@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TableCell from '@material-ui/core/TableCell';
 
 interface StyleTypes {
   width: number;
@@ -15,6 +14,8 @@ const useStyles = makeStyles({
     width: props.width,
     cursor: 'pointer',
     userSelect: 'none',
+    outline: 'none',
+    backgroundColor: 'white',
     '& div': {
       display: 'inline-flex',
       alignItems: 'center',
@@ -63,7 +64,13 @@ const HeaderCell = ({ label, width }: PropsType) => {
   };
 
   return (
-    <TableCell className={classes.root} onClick={clickHandler}>
+    <div
+      className={classes.root}
+      onClick={clickHandler}
+      onKeyPress={clickHandler}
+      role="button"
+      tabIndex={-1}
+    >
       <div>
         <span>{label}</span>
         <span>
@@ -81,7 +88,7 @@ const HeaderCell = ({ label, width }: PropsType) => {
           </span>
         </span>
       </div>
-    </TableCell>
+    </div>
   );
 };
 

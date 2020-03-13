@@ -1,21 +1,25 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import TableContainer from '@material-ui/core/TableContainer';
-import Table from '@material-ui/core/Table';
+
 
 import generateData from '../logic/dataGenerator';
 import Header from './header';
 import BodyContainer from './bodyContainer';
 
+interface StylePropsType {
+  gridColumnsSize: string;
+}
+
 const useStyles = makeStyles({
   root: {
     width: '100%',
+    overflow: 'scroll',
+    maxHeight: '440px',
+    // TODO изменить в мерах высоты
   },
-  container: {
-    maxHeight: 440,
-  },
-  tableRow: {
+  tableRow: (props: StylePropsType) => ({
+    display: 'grid',
+    gridTemplateColumns: `${props.gridColumnsSize}`,
     '& > :nth-child(1)': {
       position: 'sticky',
       zIndex: 2,
@@ -26,14 +30,11 @@ const useStyles = makeStyles({
       zIndex: 2,
       left: '81px',
     },
-  },
+  }),
   headerRow: {
-    '& > :nth-child(1)': {
-      zIndex: 10,
-    },
-    '& > :nth-child(2)': {
-      zIndex: 10,
-    },
+    position: 'sticky',
+    top: 0,
+    zIndex: 10,
   },
 });
 
@@ -41,7 +42,7 @@ const columns = [
   {
     id: 'position',
     label: '№',
-    minWidth: 30,
+    minWidth: 50,
   },
   {
     id: 'name',
@@ -91,17 +92,15 @@ const columns = [
 ];
 
 const AppTable = () => {
-  const classes = useStyles();
   const tableData = generateData();
+  const gridColumnsSize = columns.reduce((accumulator, column) => `${accumulator} ${column.minWidth}px`, '');
+  const classes = useStyles({ gridColumnsSize });
+
   return (
-    <Paper className={classes.root}>
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
-          <Header columns={columns} classes={`${classes.tableRow} ${classes.headerRow}`} />
-          <BodyContainer tableData={tableData} classes={classes.tableRow} />
-        </Table>
-      </TableContainer>
-    </Paper>
+    <div className={classes.root}>
+      <Header columns={columns} classes={`${classes.tableRow} ${classes.headerRow}`} />
+      <BodyContainer tableData={tableData} classes={classes.tableRow} />
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import TableRow from '@material-ui/core/TableRow';
-import { TableHead } from '@material-ui/core';
+
+
 import HeaderCell from '../components/MaterialTable/headerCell';
 
 interface ColumnType {
@@ -15,17 +15,15 @@ interface PropsType {
 }
 
 const Header = ({ columns, classes }: PropsType) => (
-  <TableHead>
-    <TableRow className={classes}>
-      {columns.map((column) => (
-        <HeaderCell
-          key={column.id}
-          label={column.label}
-          width={column.minWidth}
-        />
-      ))}
-    </TableRow>
-  </TableHead>
+  <div className={classes}>
+    {columns.map((column) => (
+      <HeaderCell
+        key={column.id}
+        label={column.label}
+        width={column.minWidth}
+      />
+    ))}
+  </div>
 );
 
 export default Header;
