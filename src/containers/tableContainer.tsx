@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-
 import generateData from '../logic/dataGenerator';
-import Header from './header';
-import BodyContainer from './bodyContainer';
+import VirtualTable from './virtualTable';
+import SimpleTable from './simpleTable';
+
 
 interface StylePropsType {
   gridColumnsSize: string;
@@ -13,13 +13,13 @@ interface StylePropsType {
 const rowHeight = 25;
 
 const useStyles = makeStyles({
-  root: {
+  table: {
     width: '100%',
     overflow: 'scroll',
     maxHeight: '440px',
     // TODO изменить в мерах высоты
   },
-  tableRow: (props: StylePropsType) => ({
+  row: (props: StylePropsType) => ({
     display: 'grid',
     gridTemplateColumns: `${props.gridColumnsSize}`,
     '& > :nth-child(1)': {
@@ -88,17 +88,29 @@ const columns = [
   },
 ];
 
-const AppTable = () => {
+const TableContainer = () => {
   const tableData = generateData();
   const gridColumnsSize = columns.reduce((accumulator, column) => `${accumulator} ${column.minWidth}px`, '');
   const classes = useStyles({ gridColumnsSize });
 
-  return (
-    <div className={classes.root}>
-      <Header columns={columns} classes={classes.tableRow} rowHeight={rowHeight} />
-      <BodyContainer tableData={tableData} classes={classes.tableRow} rowHeight={rowHeight} />
-    </div>
+  const isVirtual = false;
+
+  return isVirtual ? (
+    <VirtualTable
+      rows={tableData}
+      rowHeight={rowHeight}
+      styles={classes}
+      viewportHeight={440}
+      columns={columns}
+    />
+  ) : (
+    <SimpleTable
+      rows={tableData}
+      rowHeight={rowHeight}
+      styles={classes}
+      columns={columns}
+    />
   );
 };
 
-export default AppTable;
+export default TableContainer;

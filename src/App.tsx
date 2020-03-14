@@ -2,8 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import './App.css';
-import Table from './containers/materialTable';
+// import Table from './containers/materialTable';
 import store from './store';
+import TableContainer from './containers/tableContainer';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           </p>
         </header>
         <main>
-          <Table />
+          <TableContainer />
         </main>
       </div>
     </Provider>
