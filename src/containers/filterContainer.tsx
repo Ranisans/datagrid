@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Switcher from '../components/switcher';
 import { setTableType } from '../actions/tableTypeAction';
 import BooleanFilter from './booleanFilter';
-import { addStringFilter } from '../actions/filterAction';
+import { addStringFilter, resetFilter } from '../actions/filterAction';
 
 const FilterContainer = () => {
   const dispatch = useDispatch();
@@ -13,6 +13,9 @@ const FilterContainer = () => {
   };
   const stringFilterHandler = (value: string) => {
     dispatch(addStringFilter({ filterValue: value }));
+  };
+  const resetFilterHandler = () => {
+    dispatch(resetFilter());
   };
 
   return (
@@ -32,6 +35,9 @@ const FilterContainer = () => {
       <div>
         String Filter
         <input type="text" name="stringFilter" onChange={(e) => stringFilterHandler(e.target.value)} />
+      </div>
+      <div>
+        <button type="button" onClick={resetFilterHandler}>Clear Filters</button>
       </div>
     </div>
   );
