@@ -1,6 +1,7 @@
 export const ADD_STRING_FILTER = 'ADD_STRING_FILTER';
 export const ADD_ENUM_FILTER = 'ADD_ENUM_FILTER';
 export const ADD_BOOLEAN_FILTER = 'ADD_BOOLEAN_FILTER';
+export const RESET_BOOLEAN_FILTER = 'RESET_BOOLEAN_FILTER';
 export const RESET_FILTER = 'RESET_FILTER';
 
 export interface StringFilterType {
@@ -36,8 +37,15 @@ export const addEnumFilter = ({ filterValue }: EnumFilterType): ActionType => (
 
 export const addBooleanFilter = ({ filterValue }: BooleanFilterType): ActionType => (
   {
-    type: ADD_STRING_FILTER,
+    type: ADD_BOOLEAN_FILTER,
     filter: filterValue,
+  }
+);
+
+export const removeBooleanFilter = (): ActionType => (
+  {
+    type: RESET_BOOLEAN_FILTER,
+    filter: null,
   }
 );
 

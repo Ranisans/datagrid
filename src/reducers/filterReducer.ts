@@ -1,5 +1,6 @@
 import {
   ADD_BOOLEAN_FILTER,
+  RESET_BOOLEAN_FILTER,
   ADD_ENUM_FILTER,
   ADD_STRING_FILTER,
   RESET_FILTER,
@@ -24,6 +25,11 @@ export const filterReducer = (state = initialState, action: ActionType): StateTy
         ...state,
         booleanFilter: action.filter,
       };
+    case RESET_BOOLEAN_FILTER: {
+      const nextState = { ...state };
+      delete nextState.booleanFilter;
+      return nextState;
+    }
     case ADD_ENUM_FILTER:
       return {
         ...state,
