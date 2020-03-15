@@ -8,16 +8,9 @@ export interface ActionType extends TableType{
   type: string;
 }
 
-export const setVirtualTable = (): ActionType => (
+export const setTableType = ({ value }: {value: boolean}): ActionType => (
   {
     type: SET_TABLE_TYPE,
-    isVirtual: true,
-  }
-);
-
-export const setSimpleTable = (): ActionType => (
-  {
-    type: SET_TABLE_TYPE,
-    isVirtual: false,
+    isVirtual: value,
   }
 );

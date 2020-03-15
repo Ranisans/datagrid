@@ -11,11 +11,13 @@ import { StateTypes as SortingType } from '../reducers/sortingReducer';
 import {
   rowHeight, useStyles, columns, columnTypes,
 } from './tableContainerValues';
+import { TableType } from '../actions/tableTypeAction';
 
 
 const TableContainer = () => {
   const [rows, setRows] = useState<RowType[]>([]);
   const [initialRow, setInitialRows] = useState<RowType[]>([]);
+  const [visibleTable, setVisibleTable] = useState((<div />));
 
   const gridColumnsSize = columns.reduce((accumulator, column) => `${accumulator} ${column.minWidth}px`, '');
   const classes = useStyles({ gridColumnsSize });
@@ -37,24 +39,27 @@ const TableContainer = () => {
     setRows(convertedRow);
   }, [filterState, sortingState, initialRow]);
 
-  const isVirtual = false;
+  const { isVirtual } = useSelector((state: {tableType: TableType}) => state.tableType);
 
-  return isVirtual ? (
-    <VirtualTable
-      rows={rows}
-      rowHeight={rowHeight}
-      styles={classes}
-      viewportHeight={440}
-      columns={columns}
-    />
-  ) : (
-    <SimpleTable
-      rows={rows}
-      rowHeight={rowHeight}
-      styles={classes}
-      columns={columns}
-    />
-  );
+  useEffect(() => {
+    setVisibleTable(isVirtual ? (
+      <VirtualTable
+        rows={rows}
+        rowHeight={rowHeight}
+        styles={classes}
+        viewportHeight={440}
+        columns={columns}
+      />
+    ) : (
+      <SimpleTable
+        rows={rows}
+        rowHeight={rowHeight}
+        styles={classes}
+        columns={columns}
+      />
+    ));
+  }, [isVirtual, classes, rows]);
+  return visibleTable;
 };
 
 export default TableContainer;
