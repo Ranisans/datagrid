@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 interface PropsType {
   callback: (value: boolean) => void;
+  isChecked: boolean;
 }
 
 const useStyles = makeStyles({
@@ -52,16 +53,13 @@ const useStyles = makeStyles({
   },
 });
 
-const Switcher = ({ callback }: PropsType) => {
+const Switcher = ({ callback, isChecked }: PropsType) => {
   const classes = useStyles();
-  const [isChecked, setIsChecked] = useState(false);
   const checkHandler = () => {
     callback(!isChecked);
-    setIsChecked(!isChecked);
   };
 
   return (
-    // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label className={classes.switch}>
       <input className={classes.input} type="checkbox" checked={isChecked} onChange={checkHandler} />
       <span className={classes.slider} />
