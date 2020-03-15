@@ -37,7 +37,7 @@ const useStyles = makeStyles({
 
 const columns = [
   {
-    id: 'position',
+    id: 'number',
     label: '№',
     minWidth: 50,
   },
@@ -47,7 +47,7 @@ const columns = [
     minWidth: 120,
   },
   {
-    id: 'birthday',
+    id: 'birth',
     label: 'Day of Birth',
     minWidth: 120,
   },
@@ -62,7 +62,7 @@ const columns = [
     minWidth: 120,
   },
   {
-    id: 'phone',
+    id: 'phoneNum',
     label: 'Phone',
     minWidth: 60,
   },
@@ -82,7 +82,7 @@ const columns = [
     minWidth: 55,
   },
   {
-    id: 'rate',
+    id: 'interestRate',
     label: '%',
     minWidth: 25,
   },

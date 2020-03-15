@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { addSorting, setSorting } from '../../actions/sortAction';
+
+
+interface KeyboardEvent {
+  shiftKey: boolean;
+}
 interface StyleTypes {
   width: number;
 }
 
 interface PropsType extends StyleTypes{
   label: string;
+  reduxKey: string;
 }
 
 const useStyles = makeStyles({
@@ -44,9 +52,11 @@ const useStyles = makeStyles({
   },
 });
 
-const HeaderCell = ({ label, width }: PropsType) => {
+const HeaderCell = ({ label, width, reduxKey }: PropsType) => {
+  const dispatch = useDispatch();
   const classes = useStyles({ width });
 
+  // TODO вынести во внешний файл
   const val = [
     'none',
     'up',
@@ -55,12 +65,28 @@ const HeaderCell = ({ label, width }: PropsType) => {
 
   const [sortValue, setSortValue] = useState(0);
 
-  const clickHandler = () => {
-    if (sortValue + 1 >= val.length) {
+  const sortState = useSelector((state: any) => state.sorting);
+
+  useEffect(() => {
+    const currentSortValue = sortState.sorting.get(reduxKey);
+    if (currentSortValue !== undefined) {
+      const reduxSortOrder = val.indexOf(currentSortValue);
+      if (reduxSortOrder !== sortValue) {
+        setSortValue(reduxSortOrder);
+      }
+    } else if (sortValue !== 0) {
       setSortValue(0);
-    } else {
-      setSortValue(sortValue + 1);
     }
+  }, [sortState, reduxKey, val, sortValue]);
+
+  const clickHandler = (e: KeyboardEvent) => {
+    const action = e.shiftKey ? addSorting : setSorting;
+    let nextValue = sortValue + 1;
+    if (nextValue >= val.length) {
+      nextValue = 0;
+    }
+    setSortValue(nextValue);
+    dispatch(action({ sorting: reduxKey, order: val[nextValue] }));
   };
 
   return (

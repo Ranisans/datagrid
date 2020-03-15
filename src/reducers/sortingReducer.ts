@@ -17,7 +17,7 @@ export const sortingReducer = (state = initialState, action: ActionType): StateT
       };
     case ADD_SORTING:
       return {
-        sorting: new Map({ ...state.sorting }).set(action.sorting, action.order),
+        sorting: new Map(state.sorting).set(action.sorting, action.order),
       };
     default:
       return state;

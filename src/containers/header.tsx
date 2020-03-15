@@ -27,6 +27,7 @@ const Header = ({ columns, classes, rowHeight }: PropsType) => (
             key={column.id}
             label={column.label}
             width={column.minWidth}
+            reduxKey={column.id}
           />
         ))}
       </div>
