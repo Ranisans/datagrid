@@ -19,6 +19,7 @@ const generateData = (): RowType[] => {
     record.address = faker.address.streetAddress(true);
     record.phoneNum = faker.phone.phoneNumberFormat();
     record.email = faker.internet.email();
+    record.bool = faker.random.boolean();
     record.deposit = {
       currency: faker.finance.currencySymbol(),
       value: Number.parseInt(faker.finance.account(), 10),

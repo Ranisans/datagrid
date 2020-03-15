@@ -16,6 +16,7 @@ enum columnId {
   ADDRESS = 'address',
   PHONE_NUM = 'phoneNum',
   EMAIL = 'email',
+  BOOL = 'bool',
   DEPOSIT = 'deposit',
   LOAN = 'loan',
   INTEREST_RATE = 'interestRate'
@@ -81,6 +82,11 @@ export const columns = [
     minWidth: 60,
   },
   {
+    id: columnId.BOOL,
+    label: 'True?',
+    minWidth: 60,
+  },
+  {
     id: columnId.DEPOSIT,
     label: 'Deposit',
     minWidth: 55,
@@ -102,5 +108,5 @@ export const columnTypes = {
     columnId.NAME, columnId.CITY, columnId.ADDRESS, columnId.EMAIL,
   ],
   [ColumnsEnum.enumColumns]: [],
-  [ColumnsEnum.booleanColumns]: [],
+  [ColumnsEnum.booleanColumns]: [columnId.BOOL],
 };
