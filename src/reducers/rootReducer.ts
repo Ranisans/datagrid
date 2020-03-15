@@ -6,7 +6,7 @@ import { filterReducer } from './filterReducer';
 
 const rootReducer = combineReducers({
   sorting: sortingReducer,
-  filter: filterReducer,
+  filters: filterReducer,
   tableType: changeTableType,
 });
 

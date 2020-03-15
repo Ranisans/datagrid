@@ -1,7 +1,7 @@
 import { StateTypes as SortingTypes } from '../reducers/sortingReducer';
 import { StateType as FilterTypes } from '../reducers/filterReducer';
 
-enum ColumnsEnum {
+export enum ColumnsEnum {
   stringColumns = 'stringColumns',
   enumColumns = 'enumColumns',
   booleanColumns = 'booleanColumns',
@@ -25,6 +25,8 @@ export interface FilterPropsType extends PropsDataInterface{
   filters: FilterTypes;
   columns: ColumnsType;
 }
+
+export interface FilterSortType extends FilterPropsType, SortingPropsType {}
 
 export interface MultipleSortingType {
   keys: string[];
