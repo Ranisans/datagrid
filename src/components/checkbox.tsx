@@ -3,17 +3,20 @@ import React from 'react';
 interface PropsType {
   label: string;
   checkedLabels: string[];
-  callback: (value: string) => void;
+  number: number;
+  callback: ({ value, index }: { value: string; index: number }) => void;
 }
 
-const Checkbox = ({ label, checkedLabels, callback }: PropsType) => (
+const Checkbox = ({
+  label, checkedLabels, number, callback,
+}: PropsType) => (
   <label>
     {`${label}:`}
     <input
       type="checkbox"
-      checked={checkedLabels.includes(label)}
+      checked={!checkedLabels.includes(label)}
       id={label}
-      onChange={() => callback(label)}
+      onChange={() => callback({ value: label, index: number })}
     />
   </label>
 );

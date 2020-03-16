@@ -9,6 +9,7 @@ import { StateType as FilterType } from '../reducers/filterReducer';
 import SelectBlock from '../components/selectBlock';
 import { columns } from './tableContainerValues';
 import Checkbox from '../components/checkbox';
+import { hideColumn, showColumn } from '../actions/columnVisibility';
 
 
 const FilterContainer = () => {
@@ -44,12 +45,14 @@ const FilterContainer = () => {
   const resetFilterHandler = () => {
     dispatch(resetFilter());
   };
-  const checkboxCallback = (value: string) => {
+  const checkboxCallback = ({ value, index }: { value: string; index: number }) => {
     let newCheckedColumnsState = [...checkedColumns];
     if (!newCheckedColumnsState.includes(value)) {
       newCheckedColumnsState.push(value);
+      dispatch(hideColumn({ columnPosition: index }));
     } else {
       newCheckedColumnsState = checkedColumns.filter((item) => item !== value);
+      dispatch(showColumn({ columnPosition: index }));
     }
     setCheckedColumns(newCheckedColumnsState);
   };
@@ -80,11 +83,12 @@ const FilterContainer = () => {
         <SelectBlock />
       </div>
       <div>
-        {columns.map((column) => (
+        {columns.map((column, index) => (
           <Checkbox
             key={column.id}
             label={column.id}
             checkedLabels={checkedColumns}
+            number={index + 1}
             callback={checkboxCallback}
           />
         ))}
