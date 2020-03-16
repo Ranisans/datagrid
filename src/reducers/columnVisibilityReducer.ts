@@ -1,26 +1,26 @@
 import { HIDE_COLUMN, SHOW_COLUMN, ActionType } from '../actions/columnVisibility';
 
 export interface StateType {
-  columnsPosition: number[];
+  columnsPosition: Set<number>;
 }
 
 export const initialState: StateType = {
-  columnsPosition: [],
+  columnsPosition: new Set(),
 };
 
 export const columnVisibilityReducer = (state = initialState, action: ActionType): StateType => {
   switch (action.type) {
-    case HIDE_COLUMN: {
-      const nextColumnsPosition = [...state.columnsPosition];
-      nextColumnsPosition.push(action.columnPosition);
+    case HIDE_COLUMN:
       return {
-        columnsPosition: nextColumnsPosition,
+        columnsPosition: new Set([...state.columnsPosition]).add(action.columnPosition),
+      };
+    case SHOW_COLUMN: {
+      const newColumnsPosition = new Set([...state.columnsPosition]);
+      newColumnsPosition.delete(action.columnPosition);
+      return {
+        columnsPosition: newColumnsPosition,
       };
     }
-    case SHOW_COLUMN:
-      return {
-        columnsPosition: state.columnsPosition.filter((item) => item !== action.columnPosition),
-      };
     default:
       return state;
   }

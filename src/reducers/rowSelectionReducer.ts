@@ -10,20 +10,23 @@ export const initialState: StateType = {
   selectedRows: new Set(),
 };
 
-export const rowSelectionReducer = (state = initialState, action: ActionType) => {
+export const rowSelectionReducer = (state = initialState, action: ActionType): StateType => {
   switch (action.type) {
     case SELECT_SINGLE_ROW:
       return {
-        selectedRows: new Set().add(action.rowNumber),
+        selectedRows: new Set([action.rowNumber]),
       };
     case SELECT_MULTIPLE_ROW:
       return {
-        selectedRows: new Set().add([...state.selectedRows]).add(action.rowNumber),
+        selectedRows: new Set([...state.selectedRows]).add(action.rowNumber),
       };
-    case UNSELECT_ROW:
+    case UNSELECT_ROW: {
+      const newSelectedRow = new Set([...state.selectedRows]);
+      newSelectedRow.delete(action.rowNumber);
       return {
-        selectedRows: new Set().add([...state.selectedRows]).delete(action.rowNumber),
+        selectedRows: newSelectedRow,
       };
+    }
     default:
       return state;
   }
