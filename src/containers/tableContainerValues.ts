@@ -33,15 +33,10 @@ export const useStyles = makeStyles({
   row: (props: StylePropsType) => ({
     display: 'grid',
     gridTemplateColumns: `${props.gridColumnsSize}`,
-    '& > :nth-child(1)': {
-      position: 'sticky',
-      zIndex: 2,
-      left: 0,
-    },
     '& > :nth-child(2)': {
       position: 'sticky',
       zIndex: 2,
-      left: '50px',
+      left: 0,
     },
   }),
 });
