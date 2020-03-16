@@ -21,10 +21,13 @@ const FilterContainer = () => {
     if (stringFilter !== filterState.stringFilter) {
       setStringFilter(filterState.stringFilter);
     }
+  }, [filterState, stringFilter]);
+  useEffect(() => {
     if (isVirtualTable !== tableTypeState.isVirtual) {
       setIsVirtualTable(tableTypeState.isVirtual);
     }
-  }, []);
+  }, [tableTypeState, isVirtualTable]);
+
 
   const isVirtualTableCallback = (value: boolean) => {
     setIsVirtualTable(value);
