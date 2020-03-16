@@ -11,6 +11,7 @@ export interface RowType {
   address: string;
   phoneNum: string;
   email: string;
+  do: string[];
   bool: boolean;
   deposit: MoneyType;
   loan: MoneyType;

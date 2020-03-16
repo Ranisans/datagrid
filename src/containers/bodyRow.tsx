@@ -6,6 +6,7 @@ import StringCell from '../components/Table/Cells/stringCell';
 import DateTimeCell from '../components/Table/Cells/dateTimeCell';
 import ObjectCell from '../components/Table/Cells/objectCell';
 import BooleanCell from '../components/Table/Cells/booleanCell';
+import EnumCell from '../components/Table/Cells/enumCell';
 
 interface PropsType {
   data: RowType;
@@ -24,6 +25,7 @@ const BodyRow = ({ data, classes, rowHeight }: PropsType) => (
         <StringCell value={data.address} />
         <StringCell value={data.phoneNum} />
         <StringCell value={data.email} />
+        <EnumCell value={data.do} />
         <BooleanCell value={data.bool} />
         <ObjectCell value={{ label: data.deposit.currency, meaning: data.deposit.value }} />
         <ObjectCell value={{ label: data.loan.currency, meaning: data.loan.value }} />

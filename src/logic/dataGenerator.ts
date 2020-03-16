@@ -2,6 +2,8 @@ import faker from 'faker';
 
 import { RowType, MoneyType } from '../types/rowType';
 
+export const enumData = ['Yes', 'No', 'Maybe'];
+
 const generateData = (): RowType[] => {
   const seed = 154311666;
   const recordsCount = 100;
@@ -19,6 +21,11 @@ const generateData = (): RowType[] => {
     record.address = faker.address.streetAddress(true);
     record.phoneNum = faker.phone.phoneNumberFormat();
     record.email = faker.internet.email();
+    const doArray = [];
+    for (let j = 0; j < faker.random.number({ min: 1, max: 2 }); j += 1) {
+      doArray.push(faker.random.arrayElement(enumData));
+    }
+    record.do = doArray;
     record.bool = faker.random.boolean();
     record.deposit = {
       currency: faker.finance.currencySymbol(),

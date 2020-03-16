@@ -16,6 +16,7 @@ enum columnId {
   ADDRESS = 'address',
   PHONE_NUM = 'phoneNum',
   EMAIL = 'email',
+  DO = 'do',
   BOOL = 'bool',
   DEPOSIT = 'deposit',
   LOAN = 'loan',
@@ -79,7 +80,12 @@ export const columns = [
   {
     id: columnId.EMAIL,
     label: 'Email',
-    minWidth: 60,
+    minWidth: 120,
+  },
+  {
+    id: columnId.DO,
+    label: 'Do?',
+    minWidth: 120,
   },
   {
     id: columnId.BOOL,
