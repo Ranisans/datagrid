@@ -11,7 +11,7 @@ const RadioButton = ({
   label, id, isChecked, callback,
 }: PropsType) => (
   <label>
-    <input type="radio" value="option1" checked={isChecked === id} onClick={() => callback(id)} />
+    <input type="radio" value="option1" checked={isChecked === id} onChange={() => callback(id)} />
     {label}
   </label>
 );
