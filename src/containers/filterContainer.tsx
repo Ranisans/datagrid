@@ -7,6 +7,8 @@ import BooleanFilter from './booleanFilter';
 import { addStringFilter, resetFilter } from '../actions/filterAction';
 import { StateType as FilterType } from '../reducers/filterReducer';
 import SelectBlock from '../components/selectBlock';
+import { columns } from './tableContainerValues';
+import Checkbox from '../components/checkbox';
 
 
 const FilterContainer = () => {
@@ -14,6 +16,7 @@ const FilterContainer = () => {
 
   const [stringFilter, setStringFilter] = useState('');
   const [isVirtualTable, setIsVirtualTable] = useState(false);
+  const [checkedColumns, setCheckedColumns] = useState<string[]>([]);
 
   const filterState = useSelector((state: {filters: FilterType}) => state.filters);
   const tableTypeState = useSelector((state: {tableType: TableType}) => state.tableType);
@@ -41,6 +44,15 @@ const FilterContainer = () => {
   const resetFilterHandler = () => {
     dispatch(resetFilter());
   };
+  const checkboxCallback = (value: string) => {
+    let newCheckedColumnsState = [...checkedColumns];
+    if (!newCheckedColumnsState.includes(value)) {
+      newCheckedColumnsState.push(value);
+    } else {
+      newCheckedColumnsState = checkedColumns.filter((item) => item !== value);
+    }
+    setCheckedColumns(newCheckedColumnsState);
+  };
 
 
   return (
@@ -66,6 +78,16 @@ const FilterContainer = () => {
       </div>
       <div>
         <SelectBlock />
+      </div>
+      <div>
+        {columns.map((column) => (
+          <Checkbox
+            key={column.id}
+            label={column.id}
+            checkedLabels={checkedColumns}
+            callback={checkboxCallback}
+          />
+        ))}
       </div>
     </div>
   );
