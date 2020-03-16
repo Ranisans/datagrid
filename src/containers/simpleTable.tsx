@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Header from './header';
-import BodyContainer from './bodyContainer';
 import { TablePropsType } from './types';
+import BodyRow from './bodyRow';
 
 
 const SimpleTable = ({
@@ -10,7 +10,9 @@ const SimpleTable = ({
 }: TablePropsType) => (
   <div className={styles.table}>
     <Header columns={columns} classes={styles.row} rowHeight={rowHeight} />
-    <BodyContainer tableData={rows} classes={styles.row} rowHeight={rowHeight} />
+    {rows.map((rowData, i) => (
+      <BodyRow data={rowData} key={i.toString()} classes={styles.row} rowHeight={rowHeight} />
+    ))}
   </div>
 );
 
