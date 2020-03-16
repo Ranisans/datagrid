@@ -53,16 +53,16 @@ const VirtualTable = ({
         <BodyRow
           key={(startNode + index).toString()}
           data={rows[startNode + index]}
-          classes={styles.row}
+          classes={styles}
           rowHeight={rowHeight}
         />
       )),
-    [startNode, visibleNodesCount, rows, rowHeight, styles.row],
+    [startNode, visibleNodesCount, rows, rowHeight, styles],
   );
 
   return (
     <div className={styles.table} ref={ref}>
-      <Header columns={columns} classes={styles.row} rowHeight={rowHeight} />
+      <Header columns={columns} classes={styles} rowHeight={rowHeight} />
       <div
         className="viewport"
         style={{

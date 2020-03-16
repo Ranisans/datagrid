@@ -8,11 +8,11 @@ const StyledNumberCell = styled(Cell)({
   textAlign: 'right',
 });
 
-const NumberCell = ({ value }: NumberCellType) => {
+const NumberCell = ({ value, className }: NumberCellType) => {
   // TODO get locale value from redux
   const newValue = value.toLocaleString('ru-RU');
   return (
-    <StyledNumberCell>{newValue}</StyledNumberCell>
+    <StyledNumberCell className={className}>{newValue}</StyledNumberCell>
   );
 };
 

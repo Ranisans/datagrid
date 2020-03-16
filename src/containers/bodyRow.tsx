@@ -7,29 +7,36 @@ import DateTimeCell from '../components/Table/Cells/dateTimeCell';
 import ObjectCell from '../components/Table/Cells/objectCell';
 import BooleanCell from '../components/Table/Cells/booleanCell';
 import EnumCell from '../components/Table/Cells/enumCell';
+import { StylesTypes } from './types';
 
 interface PropsType {
   data: RowType;
-  classes: string;
+  classes: StylesTypes;
   rowHeight: number;
 }
 
 const BodyRow = ({ data, classes, rowHeight }: PropsType) => (
   <div style={{ position: 'relative', height: `${rowHeight}px` }}>
     <div style={{ position: 'absolute' }}>
-      <div className={classes}>
-        <NumberCell value={data.number} />
-        <StringCell value={data.name} />
-        <DateTimeCell value={data.birth} />
-        <StringCell value={data.city} />
-        <StringCell value={data.address} />
-        <StringCell value={data.phoneNum} />
-        <StringCell value={data.email} />
-        <EnumCell value={data.do} />
-        <BooleanCell value={data.bool} />
-        <ObjectCell value={{ label: data.deposit.currency, meaning: data.deposit.value }} />
-        <ObjectCell value={{ label: data.loan.currency, meaning: data.loan.value }} />
-        <NumberCell value={data.interestRate} />
+      <div className={classes.row}>
+        <NumberCell value={data.number} className={classes.number} />
+        <StringCell value={data.name} className={classes.name} />
+        <DateTimeCell value={data.birth} className={classes.birth} />
+        <StringCell value={data.city} className={classes.city} />
+        <StringCell value={data.address} className={classes.address} />
+        <StringCell value={data.phoneNum} className={classes.phoneNum} />
+        <StringCell value={data.email} className={classes.email} />
+        <EnumCell value={data.do} className={classes.do} />
+        <BooleanCell value={data.bool} className={classes.bool} />
+        <ObjectCell
+          value={{ label: data.deposit.currency, meaning: data.deposit.value }}
+          className={classes.deposit}
+        />
+        <ObjectCell
+          value={{ label: data.loan.currency, meaning: data.loan.value }}
+          className={classes.loan}
+        />
+        <NumberCell value={data.interestRate} className={classes.interestRate} />
       </div>
     </div>
   </div>

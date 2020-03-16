@@ -4,6 +4,7 @@ import { ColumnsEnum } from '../logic/logicTypes';
 
 interface StylePropsType {
   gridColumnsSize: string;
+  hiddenColumn: Set<number>;
 }
 
 export const rowHeight = 25;
@@ -38,6 +39,42 @@ export const useStyles = makeStyles({
       zIndex: 2,
       left: 0,
     },
+  }),
+  number: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(1) ? 'none' : 'block'}`,
+  }),
+  name: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(2) ? 'none' : 'block'}`,
+  }),
+  birth: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(3) ? 'none' : 'block'}`,
+  }),
+  city: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(4) ? 'none' : 'block'}`,
+  }),
+  address: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(5) ? 'none' : 'block'}`,
+  }),
+  phoneNum: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(6) ? 'none' : 'block'}`,
+  }),
+  email: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(7) ? 'none' : 'block'}`,
+  }),
+  do: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(8) ? 'none' : 'block'}`,
+  }),
+  bool: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(9) ? 'none' : 'block'}`,
+  }),
+  deposit: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(10) ? 'none' : 'block'}`,
+  }),
+  loan: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(11) ? 'none' : 'block'}`,
+  }),
+  interestRate: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(12) ? 'none' : 'block'}`,
   }),
 });
 

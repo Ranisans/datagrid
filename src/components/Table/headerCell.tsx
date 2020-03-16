@@ -15,6 +15,7 @@ interface StyleTypes {
 interface PropsType extends StyleTypes{
   label: string;
   reduxKey: string;
+  className: string;
 }
 
 const useStyles = makeStyles({
@@ -52,7 +53,9 @@ const useStyles = makeStyles({
   },
 });
 
-const HeaderCell = ({ label, width, reduxKey }: PropsType) => {
+const HeaderCell = ({
+  label, width, reduxKey, className,
+}: PropsType) => {
   const dispatch = useDispatch();
   const classes = useStyles({ width });
 
@@ -91,7 +94,7 @@ const HeaderCell = ({ label, width, reduxKey }: PropsType) => {
 
   return (
     <div
-      className={classes.root}
+      className={`${classes.root} ${className}`}
       onClick={clickHandler}
       onKeyPress={clickHandler}
       role="button"

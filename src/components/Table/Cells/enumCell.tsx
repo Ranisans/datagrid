@@ -9,11 +9,11 @@ const StyledEnumCell = styled(Cell)({
   color: 'red',
 });
 
-const EnumCell = ({ value }: EnumCellType) => {
+const EnumCell = ({ value, className }: EnumCellType) => {
   const maxEnumValues = 4;
   const newValue = value.slice(0, maxEnumValues).join(', ');
   return (
-    <StyledEnumCell>{newValue}</StyledEnumCell>
+    <StyledEnumCell className={className}>{newValue}</StyledEnumCell>
   );
 };
 

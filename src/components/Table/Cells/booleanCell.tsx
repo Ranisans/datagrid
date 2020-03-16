@@ -10,8 +10,8 @@ const StyledBooleanCell = styled(Cell)({
 
 const fillColor = '#2698da';
 
-const BooleanCell = ({ value }: BooleanCellType) => (
-  <StyledBooleanCell>
+const BooleanCell = ({ value, className }: BooleanCellType) => (
+  <StyledBooleanCell className={className}>
     <svg viewBox="0 0 100 100" width="1em" height="1em" fill={`${fillColor}${value ? '' : '00'}`}>
       <circle cx="50" cy="50" r="40" />
     </svg>

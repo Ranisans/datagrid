@@ -12,15 +12,27 @@ import {
   rowHeight, useStyles, columns, columnTypes,
 } from './tableContainerValues';
 import { TableType } from '../actions/tableTypeAction';
+import { StateType as ColumnType } from '../reducers/columnVisibilityReducer';
 
 
 const TableContainer = () => {
   const [rows, setRows] = useState<RowType[]>([]);
   const [initialRow, setInitialRows] = useState<RowType[]>([]);
   const [visibleTable, setVisibleTable] = useState((<div />));
+  const [hiddenColumn, setHiddenColumn] = useState<Set<number>>(new Set());
+
+  const columnState = useSelector(
+    (state: {columnVisibility: ColumnType}) => state.columnVisibility,
+  );
+
+  useEffect(() => {
+    if (columnState.columnsPosition !== hiddenColumn) {
+      setHiddenColumn(columnState.columnsPosition);
+    }
+  }, [columnState, hiddenColumn]);
 
   const gridColumnsSize = columns.reduce((accumulator, column) => `${accumulator} ${column.minWidth}px`, '');
-  const classes = useStyles({ gridColumnsSize });
+  const classes = useStyles({ gridColumnsSize, hiddenColumn });
 
   useEffect(() => {
     const tableData = generateData();

@@ -12,11 +12,11 @@ const useStyles = makeStyles({
   },
 });
 
-const ObjectCell = ({ value }: ObjectCellType) => {
+const ObjectCell = ({ value, className }: ObjectCellType) => {
   const classes = useStyles();
   const newValue = typeof value.meaning === 'number' ? value.meaning.toLocaleString('ru-RU') : value;
   return (
-    <Cell>
+    <Cell className={className}>
       <div className={classes.flex}>
         <div>{newValue}</div>
         <div>{value.label}</div>

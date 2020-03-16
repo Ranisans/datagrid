@@ -1,25 +1,27 @@
-
-export interface BaseCellType {
+interface MainCellType {
+  className: string;
+}
+export interface BaseCellType extends MainCellType{
   value: string;
 }
 
-export interface EnumCellType {
+export interface EnumCellType extends MainCellType{
   value: any[];
 }
 
-export interface NumberCellType {
+export interface NumberCellType extends MainCellType{
   value: number;
 }
 
-export interface BooleanCellType {
+export interface BooleanCellType extends MainCellType{
   value: boolean;
 }
 
-interface ObjectCellValue {
+interface ObjectCellValue{
   label: string;
   meaning: string|number;
 }
 
-export interface ObjectCellType {
+export interface ObjectCellType extends MainCellType{
   value: ObjectCellValue;
 }
