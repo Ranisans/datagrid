@@ -30,7 +30,7 @@ export const addStringFilter = ({ filterValue }: StringFilterType): ActionType =
 
 export const addEnumFilter = ({ filterValue }: EnumFilterType): ActionType => (
   {
-    type: ADD_STRING_FILTER,
+    type: ADD_ENUM_FILTER,
     filter: filterValue,
   }
 );

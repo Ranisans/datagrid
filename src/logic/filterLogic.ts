@@ -2,7 +2,6 @@ import { FilterPropsType, RowType } from './logicTypes';
 
 const filtering = ({ filters, columns, data }: FilterPropsType) => {
   let { stringFilter } = filters;
-  stringFilter = stringFilter.toLowerCase();
   const { enumFilter } = filters;
   const { booleanFilter } = filters;
 
@@ -54,13 +53,14 @@ const filtering = ({ filters, columns, data }: FilterPropsType) => {
   };
 
   let result = [...data];
-  if (stringColumns.length > 0) {
+  if (stringColumns.length > 0 && stringFilter) {
+    stringFilter = stringFilter.toLowerCase();
     result = result.filter(filterByString);
   }
-  if (enumFilter.length > 0) {
+  if (enumColumns.length > 0 && enumFilter.length > 0) {
     result = result.filter(filterByEnum);
   }
-  if (booleanFilter !== undefined) {
+  if (booleanColumns.length > 0 && booleanFilter !== undefined) {
     result = result.filter(filterByBoolean);
   }
   return result;

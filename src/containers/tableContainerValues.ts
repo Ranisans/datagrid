@@ -113,6 +113,6 @@ export const columnTypes = {
   [ColumnsEnum.stringColumns]: [
     columnId.NAME, columnId.CITY, columnId.ADDRESS, columnId.EMAIL,
   ],
-  [ColumnsEnum.enumColumns]: [],
+  [ColumnsEnum.enumColumns]: [columnId.DO],
   [ColumnsEnum.booleanColumns]: [columnId.BOOL],
 };

@@ -6,6 +6,7 @@ import { setTableType, TableType } from '../actions/tableTypeAction';
 import BooleanFilter from './booleanFilter';
 import { addStringFilter, resetFilter } from '../actions/filterAction';
 import { StateType as FilterType } from '../reducers/filterReducer';
+import SelectBlock from '../components/selectBlock';
 
 
 const FilterContainer = () => {
@@ -62,6 +63,9 @@ const FilterContainer = () => {
       </div>
       <div>
         <button type="button" onClick={resetFilterHandler}>Clear Filters</button>
+      </div>
+      <div>
+        <SelectBlock />
       </div>
     </div>
   );
