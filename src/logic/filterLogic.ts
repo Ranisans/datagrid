@@ -1,7 +1,8 @@
 import { FilterPropsType, RowType } from './logicTypes';
 
 const filtering = ({ filters, columns, data }: FilterPropsType) => {
-  const { stringFilter } = filters;
+  let { stringFilter } = filters;
+  stringFilter = stringFilter.toLowerCase();
   const { enumFilter } = filters;
   const { booleanFilter } = filters;
 
@@ -13,7 +14,7 @@ const filtering = ({ filters, columns, data }: FilterPropsType) => {
     let result = false;
     for (let i = 0; i < stringColumns.length; i += 1) {
       const column = stringColumns[i];
-      if (row[column].includes(stringFilter)) {
+      if ((row[column].toLowerCase()).includes(stringFilter)) {
         result = true;
         break;
       }
