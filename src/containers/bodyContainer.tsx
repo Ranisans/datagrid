@@ -42,6 +42,7 @@ const BodyContainer = ({ rows, rowHeight, styles }: BodyPropsType) => {
     ),
     [rows, rowHeight, styles],
   );
+
   return (
     <>
       { visibleRows }

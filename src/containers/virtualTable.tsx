@@ -1,5 +1,5 @@
 import React, {
-  useMemo, useState, useRef, useEffect,
+  useState, useRef, useEffect,
 } from 'react';
 
 import Header from './header';
@@ -46,12 +46,9 @@ const VirtualTable = ({
 
   const offsetY = startNode * rowHeight;
 
-  const visibleRows = useMemo(
-    () => new Array(visibleNodesCount)
-      .fill(null)
-      .map((_, index) => rows[startNode + index]),
-    [startNode, visibleNodesCount, rows],
-  );
+  const visibleRows = new Array(visibleNodesCount)
+    .fill(null)
+    .map((_, index) => rows[startNode + index]);
 
   return (
     <div className={styles.table} ref={ref}>

@@ -26,7 +26,7 @@ const SelectBlock = () => {
     if (JSON.stringify(selected) !== JSON.stringify(stateValue)) {
       setSelected(stateValue);
     }
-  }, [filterState]);
+  }, [filterState, selected]);
 
   const onChange = (selectedOptions: any) => {
     setSelected(selectedOptions);
