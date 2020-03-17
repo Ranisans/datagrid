@@ -4,7 +4,7 @@ import { ColumnsEnum } from '../logic/logicTypes';
 
 interface StylePropsType {
   gridColumnsSize: string;
-  hiddenColumn: Set<number>;
+  hiddenColumn: Set<string>;
 }
 
 export const rowHeight = 25;
@@ -41,40 +41,40 @@ export const useStyles = makeStyles({
     },
   }),
   number: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(0) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.NUMBER) ? 'none' : 'block'}`,
   }),
   name: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(1) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.NAME) ? 'none' : 'block'}`,
   }),
   birth: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(2) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.BIRTH) ? 'none' : 'block'}`,
   }),
   city: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(3) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.CITY) ? 'none' : 'block'}`,
   }),
   address: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(4) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.ADDRESS) ? 'none' : 'block'}`,
   }),
   phoneNum: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(5) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.PHONE_NUM) ? 'none' : 'block'}`,
   }),
   email: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(6) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.EMAIL) ? 'none' : 'block'}`,
   }),
   do: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(7) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.DO) ? 'none' : 'block'}`,
   }),
   bool: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(8) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.BOOL) ? 'none' : 'block'}`,
   }),
   deposit: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(9) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.DEPOSIT) ? 'none' : 'block'}`,
   }),
   loan: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(10) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.LOAN) ? 'none' : 'block'}`,
   }),
   interestRate: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(11) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(columnId.INTEREST_RATE) ? 'none' : 'block'}`,
   }),
 });
 

@@ -49,10 +49,10 @@ const FilterContainer = () => {
     let newCheckedColumnsState = [...checkedColumns];
     if (!newCheckedColumnsState.includes(value)) {
       newCheckedColumnsState.push(value);
-      dispatch(hideColumn({ columnPosition: index }));
+      dispatch(hideColumn({ columnPosition: index, columnName: value }));
     } else {
       newCheckedColumnsState = checkedColumns.filter((item) => item !== value);
-      dispatch(showColumn({ columnPosition: index }));
+      dispatch(showColumn({ columnPosition: index, columnName: value }));
     }
     setCheckedColumns(newCheckedColumnsState);
   };

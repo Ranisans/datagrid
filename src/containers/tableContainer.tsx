@@ -19,15 +19,15 @@ const TableContainer = () => {
   const [rows, setRows] = useState<RowType[]>([]);
   const [initialRow, setInitialRows] = useState<RowType[]>([]);
   const [visibleTable, setVisibleTable] = useState((<div />));
-  const [hiddenColumn, setHiddenColumn] = useState<Set<number>>(new Set());
+  const [hiddenColumn, setHiddenColumn] = useState<Set<string>>(new Set());
   const [gridColumnsSize, setGridColumnsSize] = useState<string>('');
   const columnState = useSelector(
     (state: {columnVisibility: ColumnType}) => state.columnVisibility,
   );
 
   useEffect(() => {
-    if (columnState.columnsPosition !== hiddenColumn) {
-      setHiddenColumn(columnState.columnsPosition);
+    if (columnState.columnName !== hiddenColumn) {
+      setHiddenColumn(columnState.columnName);
     }
   }, [columnState, hiddenColumn]);
 
