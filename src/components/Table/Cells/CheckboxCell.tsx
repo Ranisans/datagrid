@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Cell from './cell';
-import { BooleanCellType } from './types';
+import { MainCellType } from './types';
 
-const CheckboxCell = ({ value, className }: BooleanCellType) => (
+const CheckboxCell = ({ className }: MainCellType) => (
   <Cell className={className}>
-    <input type="checkbox" checked={value} />
+    <input type="checkbox" />
   </Cell>
 );
 

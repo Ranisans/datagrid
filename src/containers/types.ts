@@ -38,3 +38,8 @@ interface HeaderColumnDataType {
   label: string;
   minWidth: number;
 }
+
+export interface CheckboxCallbackType {
+  position: number;
+  isShift: boolean;
+}

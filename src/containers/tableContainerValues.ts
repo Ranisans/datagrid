@@ -43,6 +43,8 @@ export const useStyles = makeStyles({
   }),
   check: (props: StylePropsType) => ({
     display: `${props.hiddenColumn.has(columnId.CHECK) ? 'none' : 'block'}`,
+    userSelect: 'none',
+    tabindex: -1,
   }),
   number: (props: StylePropsType) => ({
     display: `${props.hiddenColumn.has(columnId.NUMBER) ? 'none' : 'block'}`,

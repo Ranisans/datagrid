@@ -1,15 +1,43 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import BodyRow from './bodyRow';
-import { BodyPropsType } from './types';
+import { BodyPropsType, CheckboxCallbackType } from './types';
+import { unselectRow, selectMultipleRow, selectSingleRow } from '../actions/rowsSelect';
+import { StateType as SelectedRowType } from '../reducers/rowSelectionReducer';
+
+interface StateType {
+  rowSelection: SelectedRowType;
+}
+
+const BodyContainer = ({ rows, rowHeight, styles }: BodyPropsType) => {
+  const dispatch = useDispatch();
+
+  const selectedRowsState = useSelector((state: StateType) => state.rowSelection);
 
 
-const BodyContainer = ({ rows, rowHeight, styles }: BodyPropsType) => (
-  <>
-    {rows.map((rowData, i) => (
-      <BodyRow data={rowData} key={i.toString()} classes={styles} rowHeight={rowHeight} />
-    ))}
-  </ >
-);
+  const checkboxCallback = ({ position, isShift }: CheckboxCallbackType) => {
+    if (selectedRowsState.selectedRows.has(position)) {
+      dispatch(unselectRow({ rowNumber: position }));
+    } else if (isShift) {
+      dispatch(selectMultipleRow({ rowNumber: position }));
+    } else {
+      dispatch(selectSingleRow({ rowNumber: position }));
+    }
+  };
+  return (
+    <>
+      {rows.map((rowData, i) => (
+        <BodyRow
+          data={rowData}
+          key={i.toString()}
+          classes={styles}
+          rowHeight={rowHeight}
+          checkboxCallback={checkboxCallback}
+        />
+      ))}
+    </ >
+  );
+};
 
 export default BodyContainer;

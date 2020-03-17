@@ -1,4 +1,4 @@
-interface MainCellType {
+export interface MainCellType {
   className: string;
 }
 export interface BaseCellType extends MainCellType{
