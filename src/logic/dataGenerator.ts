@@ -7,7 +7,7 @@ export const enumData = ['Yes', 'No', 'Maybe'];
 const generateData = (): RowType[] => {
   const seed = 154311666;
   const recordsCount = 100;
-  const datePast = 20;
+  const datePast = 4;
 
   const result: RowType[] = [];
 
