@@ -17,10 +17,13 @@ export interface StylesTypes {
   interestRate: string;
 }
 
-export interface TablePropsType {
+export interface BodyPropsType {
   rows: RowType[];
   rowHeight: number;
   styles: StylesTypes;
+}
+
+export interface TablePropsType extends BodyPropsType{
   columns: HeaderColumnDataType[];
 }
 

@@ -2,9 +2,9 @@ import React, {
   useMemo, useState, useRef, useEffect,
 } from 'react';
 
-import BodyRow from './bodyRow';
 import Header from './header';
 import { VirtualTablePropsType } from './types';
+import BodyContainer from './bodyContainer';
 
 
 const useScrollAware = (): [number, any] => {
@@ -49,15 +49,8 @@ const VirtualTable = ({
   const visibleRows = useMemo(
     () => new Array(visibleNodesCount)
       .fill(null)
-      .map((_, index) => (
-        <BodyRow
-          key={(startNode + index).toString()}
-          data={rows[startNode + index]}
-          classes={styles}
-          rowHeight={rowHeight}
-        />
-      )),
-    [startNode, visibleNodesCount, rows, rowHeight, styles],
+      .map((_, index) => rows[startNode + index]),
+    [startNode, visibleNodesCount, rows],
   );
 
   return (
@@ -76,7 +69,7 @@ const VirtualTable = ({
           transform: `translateY(${offsetY}px)`,
         }}
         >
-          {visibleRows}
+          <BodyContainer rows={visibleRows} rowHeight={rowHeight} styles={styles} />
         </div>
       </div>
     </div>

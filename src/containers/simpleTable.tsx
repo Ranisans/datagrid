@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from './header';
 import { TablePropsType } from './types';
-import BodyRow from './bodyRow';
+import BodyContainer from './bodyContainer';
 
 
 const SimpleTable = ({
@@ -10,9 +10,7 @@ const SimpleTable = ({
 }: TablePropsType) => (
   <div className={styles.table}>
     <Header columns={columns} classes={styles} rowHeight={rowHeight} />
-    {rows.map((rowData, i) => (
-      <BodyRow data={rowData} key={i.toString()} classes={styles} rowHeight={rowHeight} />
-    ))}
+    <BodyContainer rows={rows} rowHeight={rowHeight} styles={styles} />
   </div>
 );
 
