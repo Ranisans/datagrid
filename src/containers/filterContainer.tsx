@@ -88,7 +88,7 @@ const FilterContainer = () => {
             key={column.id}
             label={column.id}
             checkedLabels={checkedColumns}
-            number={index + 1}
+            number={index}
             callback={checkboxCallback}
           />
         ))}

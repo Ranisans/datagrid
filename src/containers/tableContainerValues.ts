@@ -41,40 +41,40 @@ export const useStyles = makeStyles({
     },
   }),
   number: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(1) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(0) ? 'none' : 'block'}`,
   }),
   name: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(2) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(1) ? 'none' : 'block'}`,
   }),
   birth: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(3) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(2) ? 'none' : 'block'}`,
   }),
   city: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(4) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(3) ? 'none' : 'block'}`,
   }),
   address: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(5) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(4) ? 'none' : 'block'}`,
   }),
   phoneNum: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(6) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(5) ? 'none' : 'block'}`,
   }),
   email: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(7) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(6) ? 'none' : 'block'}`,
   }),
   do: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(8) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(7) ? 'none' : 'block'}`,
   }),
   bool: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(9) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(8) ? 'none' : 'block'}`,
   }),
   deposit: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(10) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(9) ? 'none' : 'block'}`,
   }),
   loan: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(11) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(10) ? 'none' : 'block'}`,
   }),
   interestRate: (props: StylePropsType) => ({
-    display: `${props.hiddenColumn.has(12) ? 'none' : 'block'}`,
+    display: `${props.hiddenColumn.has(11) ? 'none' : 'block'}`,
   }),
 });
 
