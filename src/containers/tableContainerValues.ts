@@ -87,7 +87,7 @@ export const columns = [
   {
     id: columnId.NAME,
     label: 'Name',
-    minWidth: 120,
+    minWidth: 180,
   },
   {
     id: columnId.BIRTH,
@@ -97,22 +97,22 @@ export const columns = [
   {
     id: columnId.CITY,
     label: 'City, Zip code',
-    minWidth: 120,
+    minWidth: 240,
   },
   {
     id: columnId.ADDRESS,
     label: 'Address',
-    minWidth: 120,
+    minWidth: 240,
   },
   {
     id: columnId.PHONE_NUM,
     label: 'Phone',
-    minWidth: 60,
+    minWidth: 160,
   },
   {
     id: columnId.EMAIL,
     label: 'Email',
-    minWidth: 120,
+    minWidth: 220,
   },
   {
     id: columnId.DO,
@@ -127,17 +127,17 @@ export const columns = [
   {
     id: columnId.DEPOSIT,
     label: 'Deposit',
-    minWidth: 55,
+    minWidth: 120,
   },
   {
     id: columnId.LOAN,
     label: 'Loan',
-    minWidth: 55,
+    minWidth: 120,
   },
   {
     id: columnId.INTEREST_RATE,
     label: '%',
-    minWidth: 25,
+    minWidth: 40,
   },
 ];
 
