@@ -8,6 +8,7 @@ import ObjectCell from '../components/Table/Cells/objectCell';
 import BooleanCell from '../components/Table/Cells/booleanCell';
 import EnumCell from '../components/Table/Cells/enumCell';
 import { StylesTypes } from './types';
+import CheckboxCell from '../components/Table/Cells/CheckboxCell';
 
 interface PropsType {
   data: RowType;
@@ -19,6 +20,7 @@ const BodyRow = ({ data, classes, rowHeight }: PropsType) => (
   <div style={{ position: 'relative', height: `${rowHeight}px` }}>
     <div style={{ position: 'absolute' }}>
       <div className={classes.row}>
+        <CheckboxCell value={false} className={classes.check} />
         <NumberCell value={data.number} className={classes.number} />
         <StringCell value={data.name} className={classes.name} />
         <DateTimeCell value={data.birth} className={classes.birth} />

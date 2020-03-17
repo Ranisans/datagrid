@@ -10,6 +10,7 @@ interface StylePropsType {
 export const rowHeight = 25;
 
 enum columnId {
+  CHECK = 'check',
   NUMBER = 'number',
   NAME = 'name',
   BIRTH = 'birth',
@@ -34,11 +35,14 @@ export const useStyles = makeStyles({
   row: (props: StylePropsType) => ({
     display: 'grid',
     gridTemplateColumns: `${props.gridColumnsSize}`,
-    '& > :nth-child(2)': {
+    '& > :nth-child(3)': {
       position: 'sticky',
       zIndex: 2,
       left: 0,
     },
+  }),
+  check: (props: StylePropsType) => ({
+    display: `${props.hiddenColumn.has(columnId.CHECK) ? 'none' : 'block'}`,
   }),
   number: (props: StylePropsType) => ({
     display: `${props.hiddenColumn.has(columnId.NUMBER) ? 'none' : 'block'}`,
@@ -79,6 +83,11 @@ export const useStyles = makeStyles({
 });
 
 export const columns = [
+  {
+    id: columnId.CHECK,
+    label: '',
+    minWidth: 50,
+  },
   {
     id: columnId.NUMBER,
     label: '№',

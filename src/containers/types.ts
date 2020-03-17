@@ -3,6 +3,7 @@ import { RowType } from '../types/rowType';
 export interface StylesTypes {
   table: string;
   row: string;
+  check: string;
   number: string;
   name: string;
   birth: string;

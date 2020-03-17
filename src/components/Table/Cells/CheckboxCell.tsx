@@ -3,8 +3,8 @@ import React from 'react';
 import Cell from './cell';
 import { BooleanCellType } from './types';
 
-const CheckboxCell = ({ value }: BooleanCellType) => (
-  <Cell>
+const CheckboxCell = ({ value, className }: BooleanCellType) => (
+  <Cell className={className}>
     <input type="checkbox" checked={value} />
   </Cell>
 );
