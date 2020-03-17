@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import makeAnimated from 'react-select/animated';
 
 import { enumData } from '../logic/dataGenerator';
 import { addEnumFilter } from '../actions/filterAction';
+import { StateType as FilterType } from '../reducers/filterReducer';
 
 interface OptionType {
   value: string;
@@ -15,12 +16,17 @@ const animatedComponents = makeAnimated();
 
 const SelectBlock = () => {
   const dispatch = useDispatch();
-  const [options, setOptions] = useState <OptionType[]>([]);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState<OptionType[]>([]);
+  const options = enumData.map((value) => ({ value, label: value }));
+
+  const filterState = useSelector((state: {filters: FilterType}) => state.filters);
 
   useEffect(() => {
-    setOptions(enumData.map((value) => ({ value, label: value })));
-  }, []);
+    const stateValue = filterState.enumFilter.map((value) => ({ value, label: value }));
+    if (JSON.stringify(selected) !== JSON.stringify(stateValue)) {
+      setSelected(stateValue);
+    }
+  }, [filterState]);
 
   const onChange = (selectedOptions: any) => {
     setSelected(selectedOptions);

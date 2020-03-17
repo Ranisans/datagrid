@@ -77,10 +77,10 @@ const FilterContainer = () => {
         <input type="text" name="stringFilter" value={stringFilter} onChange={(e) => stringFilterHandler(e.target.value)} />
       </div>
       <div>
-        <button type="button" onClick={resetFilterHandler}>Clear Filters</button>
+        <SelectBlock />
       </div>
       <div>
-        <SelectBlock />
+        <button type="button" onClick={resetFilterHandler}>Clear Filters</button>
       </div>
       <div>
         {columns.map((column, index) => (
