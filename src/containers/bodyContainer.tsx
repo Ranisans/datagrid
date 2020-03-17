@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import BodyRow from './bodyRow';
@@ -25,17 +25,26 @@ const BodyContainer = ({ rows, rowHeight, styles }: BodyPropsType) => {
       dispatch(selectSingleRow({ rowNumber: position }));
     }
   };
+
+  const visibleRows = useMemo(
+    () => (
+      <>
+        {rows.map((rowData, i) => (
+          <BodyRow
+            data={rowData}
+            key={i.toString()}
+            classes={styles}
+            rowHeight={rowHeight}
+            checkboxCallback={checkboxCallback}
+          />
+        ))}
+      </ >
+    ),
+    [rows, rowHeight, styles],
+  );
   return (
     <>
-      {rows.map((rowData, i) => (
-        <BodyRow
-          data={rowData}
-          key={i.toString()}
-          classes={styles}
-          rowHeight={rowHeight}
-          checkboxCallback={checkboxCallback}
-        />
-      ))}
+      { visibleRows }
     </ >
   );
 };
