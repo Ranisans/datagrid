@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/datagrid/static/css/main.bfcd9915.chunk.css",
+    "main.js": "/datagrid/static/js/main.7bb25d79.chunk.js",
+    "main.js.map": "/datagrid/static/js/main.7bb25d79.chunk.js.map",
+    "runtime-main.js": "/datagrid/static/js/runtime-main.0cc68fbb.js",
+    "runtime-main.js.map": "/datagrid/static/js/runtime-main.0cc68fbb.js.map",
+    "static/js/2.52a92e33.chunk.js": "/datagrid/static/js/2.52a92e33.chunk.js",
+    "static/js/2.52a92e33.chunk.js.map": "/datagrid/static/js/2.52a92e33.chunk.js.map",
+    "index.html": "/datagrid/index.html",
+    "precache-manifest.0be8b0e511beb17e74d348db4d29b18c.js": "/datagrid/precache-manifest.0be8b0e511beb17e74d348db4d29b18c.js",
+    "service-worker.js": "/datagrid/service-worker.js",
+    "static/css/main.bfcd9915.chunk.css.map": "/datagrid/static/css/main.bfcd9915.chunk.css.map",
+    "static/js/2.52a92e33.chunk.js.LICENSE.txt": "/datagrid/static/js/2.52a92e33.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0cc68fbb.js",
+    "static/js/2.52a92e33.chunk.js",
+    "static/css/main.bfcd9915.chunk.css",
+    "static/js/main.7bb25d79.chunk.js"
+  ]
+}
